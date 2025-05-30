@@ -1,0 +1,44 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e6f4ea;  /* สีเขียวอ่อน */
+  color: #2f5d38;       /* เขียวเข้ม */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 480px;
+}
+
+h1 {
+  color: #2f5d38;
+  font-size: 2.8rem;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2em;
+  color: #4a7c4a;
+}
+
+button {
+  background-color: #4caf50; /* เขียวสด */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #388e3c; /* เขียวเข้มกว่าหน่อย */
+}
