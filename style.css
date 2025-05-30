@@ -327,7 +327,7 @@ body {
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grafter-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
@@ -402,8 +402,11 @@ body {
   transition: transform 0.5s ease-in-out;
 }
 
+/* แก้ไข: ปรับขนาดให้เหมาะสมกับทุกอุปกรณ์ */
 .certificate-img {
-  width: 33.33%;
+  width: 100%;
+  max-width: 300px; /* จำกัดขนาดสูงสุด */
+  margin: 0 auto;
   padding: 0 15px;
   height: auto;
   object-fit: cover;
@@ -507,8 +510,11 @@ body {
   transition: transform 0.5s ease-in-out;
 }
 
+/* แก้ไข: ปรับขนาดให้เหมาะสมกับทุกอุปกรณ์ */
 .certificate-carousel-horizontal .certificate-img {
-  width: 33.33%;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
   padding: 0 15px;
   height: auto;
   object-fit: cover;
@@ -600,7 +606,8 @@ body {
   }
 
   .certificate-img {
-      width: 33.33%;
+      width: 100%;
+      max-width: 250px; /* ปรับขนาดให้เล็กลงสำหรับมือถือ */
       padding: 0 10px;
   }
 
@@ -626,7 +633,8 @@ body {
   }
 
   .certificate-carousel-horizontal .certificate-img {
-      width: 33.33%;
+      width: 100%;
+      max-width: 250px;
       padding: 0 10px;
   }
 
@@ -689,184 +697,208 @@ body {
 
 /* Graphic Design Modal */
 .graphic-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
 }
 
 .graphic-modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .graphic-modal-close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .graphic-modal-close:hover {
-    color: #ccc;
+  color: #ccc;
 }
 
 /* Graphic Carousel */
 .graphic-carousel {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 90%; /* แก้ไข: ปรับให้ยืดหยุ่นตามขนาดหน้าจอ */
+  margin: 0 auto;
+  overflow: hidden;
 }
 
+/* แก้ไข: เพิ่มการจัดกึ่งกลางและปรับขนาดให้เหมาะสม */
 .graphic-carousel-slide {
-    display: flex;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 
-.graphic-carousel img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 10px;
-    flex-shrink: 0;
-    display: none;
+/* แก้ไข: ปรับขนาดภาพและวิดีโอให้เหมาะสมกับทุกอุปกรณ์ */
+.graphic-carousel img,
+.graphic-carousel video {
+  width: 100%;
+  max-width: 800px; /* กำหนดขนาดสูงสุดสำหรับคอมพิวเตอร์ */
+  height: auto;
+  max-height: 80vh; /* ป้องกันภาพสูงเกินหน้าจอ */
+  object-fit: contain;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: none;
 }
 
-.graphic-carousel img.active {
-    display: block;
+.graphic-carousel img.active,
+.graphic-carousel video.active {
+  display: block;
 }
 
 .graphic-carousel-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .graphic-carousel-prev,
 .graphic-carousel-next {
-    background: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 12px;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .graphic-carousel-prev:hover,
 .graphic-carousel-next:hover {
-    background: #1b5e20;
+  background: #1b5e20;
 }
 
 .graphic-carousel-dots {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .graphic-carousel-dots .dot {
-    width: 8px;
-    height: 8px;
-    background-color: #e8f5e9;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 8px;
+  height: 8px;
+  background-color: #e8f5e9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .graphic-carousel-dots .dot.active {
-    background-color: #2e7d32;
+  background-color: #2e7d32;
 }
 
 /* ปุ่ม View Gallery */
 .project-card-image {
-    position: relative;
+  position: relative;
 }
 
 .view-graphic {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 8px 16px;
-    background-color: rgba(56, 142, 60, 0.8);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  background-color: rgba(56, 142, 60, 0.8);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 }
 
 .project-card-image:hover .view-graphic {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .view-graphic:hover {
-    background-color: #1b5e20;
-    transform: translate(-50%, -50%) scale(1.05);
+  background-color: #1b5e20;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* เพิ่ม: Media Queries สำหรับ Graphic Carousel */
+@media (min-width: 1024px) {
+  .graphic-carousel {
+    max-width: 70%; /* ปรับขนาดสำหรับคอมพิวเตอร์ */
+  }
+
+  .graphic-carousel img,
+  .graphic-carousel video {
+    max-width: 900px; /* ขนาดใหญ่ขึ้นสำหรับหน้าจอใหญ่ */
+    max-height: 70vh; /* ปรับความสูงให้เหมาะสม */
+  }
 }
 
 @media (max-width: 768px) {
-    .graphic-modal-content {
-        max-width: 95%;
-        padding: 10px;
-    }
+  .graphic-modal-content {
+    max-width: 95%;
+    padding: 10px;
+  }
 
-    .graphic-carousel {
-        max-width: 100%;
-    }
+  .graphic-carousel {
+    max-width: 95%;
+  }
 
-    .graphic-carousel img {
-        max-height: 300px;
-        border-radius: 8px;
-    }
+  .graphic-carousel img,
+  .graphic-carousel video {
+    max-width: 100%;
+    max-height: 60vh; /* ปรับให้เหมาะกับมือถือ */
+    border-radius: 8px;
+  }
 
-    .graphic-carousel-prev,
-    .graphic-carousel-next {
-        width: 25px;
-        height: 25px;
-        font-size: 10px;
-    }
+  .graphic-carousel-prev,
+  .graphic-carousel-next {
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+  }
 
-    .graphic-carousel-dots .dot {
-        width: 6px;
-        height: 6px;
-    }
+  .graphic-carousel-dots .dot {
+    width: 6px;
+    height: 6px;
+  }
 
-    .view-graphic {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
+  .view-graphic {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
 
 .portfolio-section {
@@ -875,6 +907,7 @@ body {
   text-align: center;
 }
 
+/* Portfolio Section */
 .portfolio-header {
   margin-bottom: 30px;
 }
@@ -945,6 +978,7 @@ body {
   margin: 0 auto;
 }
 
+/* แก้ไข: เพิ่มการจำกัดขนาดและจัดกึ่งกลาง */
 .project-card {
   background-color: #fff;
   border-radius: 15px;
@@ -954,6 +988,17 @@ body {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
+  width: 100%;
+  max-width: 400px; /* จำกัดขนาดสูงสุด */
+  margin: 0 auto; /* จัดกึ่งกลาง */
+}
+
+/* แก้ไข: เพิ่ม display: block เพื่อป้องกันช่องว่างใต้ภาพ */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
 
 .project-card.hidden {
@@ -964,12 +1009,6 @@ body {
 
 .project-card:hover {
   transform: translateY(-5px);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
 }
 
 .project-card-content {
@@ -1006,6 +1045,27 @@ body {
   font-size: 11px;
   font-family: 'Poppins', sans-serif;
   white-space: nowrap;
+}
+
+/* เพิ่ม: Media Queries สำหรับ Project Grid */
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* ปรับขนาดสำหรับคอม */
+  }
+
+  .project-card {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* แสดงทีละ 1 คอลัมน์บนมือถือ */
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
 }
 
 /* Scroll to Top Button */
@@ -1182,19 +1242,19 @@ body {
 
 @media (max-width: 768px) {
   .contact-content {
-      flex-direction: column;
-      gap: 30px;
+    flex-direction: column;
+    gap: 30px;
   }
 
   .contact-info,
   .contact-form {
-      text-align: center;
+    text-align: center;
   }
 
   .contact-info .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
   }
 }
 
